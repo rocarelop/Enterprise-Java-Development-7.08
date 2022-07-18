@@ -1,0 +1,9 @@
+<h1>Employee List</h1>
+<div class="container">
+    <div *ngFor="let employee of employeeList; let i = index">
+        <p [ngClass]="{'odd': !isEven(i), 'even': isEven(i)}" class="employee" (click)="showDetails(i)">{{employee.name}}</p>
+        <div *ngIf="i === selectedEmployee">
+            <app-employee-details [employee]="employee" (deleteEmployeeEvent)="deleteEmployee(i)"></app-employee-details>
+        </div>
+    </div>
+</div>
